@@ -20,6 +20,11 @@ setTimeout(async () => {
 }, 86400000);
 
 
+setTimeout(async () => {
+    let x = 10 + 20;
+  }, 840000);
+  
+
 const verifyAccount = catchError(async (req,res,next) =>{
     jwt.verify(req.params.token, process.env.JWT_SECRET ,async (err,payload)=>{
         if(err) return next(new AppError(err.message,404))
