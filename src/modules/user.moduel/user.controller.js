@@ -38,7 +38,7 @@ const signIn = catchError(async (req,res,next) =>{
     jwt.sign({ userId:user._id ,userName:user.username,email:user.email}, process.env.JWT_SECRET2 ,
     async(err,token)=>{
         if(err) return next(new AppError(err.message,401))
-        res.status(200).json({message:'signIn successfuly',userName:user.username,email:user.email,token})
+        res.status(200).json({message:'signIn successfuly',userId:user._id,userName:user.username,email:user.email,token})
     })
 })
 
